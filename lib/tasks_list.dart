@@ -5,17 +5,15 @@ import 'task.dart';
 import 'tasks_screen.dart';
 
 class TaskList extends StatefulWidget {
+  final List<Task> tasks;
+
+  TaskList(this.tasks); 
+
   @override
   _TaskListState createState() => _TaskListState();
 }
 
 class _TaskListState extends State<TaskList> {
-  List<Task> tasks = [
-    Task(name: 'Buy milk'),
-    Task(name: 'Buy eggs'),
-    Task(name: 'Buy bread'),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:todoey/tasks_screen.dart';
 
 class newRecordSheet extends StatelessWidget {
+  final Function addTaskCallback;
+  newRecordSheet(this.addTaskCallback);
+
   @override
   Widget build(BuildContext context) {
+    String newTaskTitle = '';
+
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -22,6 +27,9 @@ class newRecordSheet extends StatelessWidget {
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (newText) {
+                newTaskTitle = newText;
+              },
             ),
             FlatButton(
               child: Text(
@@ -29,9 +37,11 @@ class newRecordSheet extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                 ),
-                ),
-                color: Colors.lightBlueAccent,
-                onPressed: () {},
+              ),
+              color: Colors.lightBlueAccent,
+              onPressed: () {
+                addTaskCallback(newTaskTitle);
+              },
             ),
           ],
         ),
