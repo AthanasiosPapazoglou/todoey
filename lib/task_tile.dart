@@ -1,10 +1,15 @@
+
+//custom Widget που δομει μια εγγραφη σε customised μορφη ListTile
+//δεχεται 3 arguments. Τιτλο μεμονομενου todo, κατασταση checkbox, CBfunction για λειτουργικοτητα του checkbox
+
+
 import 'package:flutter/material.dart';
 import 'package:todoey/tasks_screen.dart';
 
 class TaskTile extends StatelessWidget {
-  final bool isChecked;
-  final String taskTitle;
-  final Function checkboxCallback;
+  final bool isChecked; //στεγαζει value για το αν ειναι τσεκαρισμενο ή οχι
+  final String taskTitle; // στεγαζει το τιτλο της αγγραφης/todo  
+  final Function checkboxCallback; // φερει τη λειτουργικοτητα του checkbox (δηλαδη οταν γινεται κλικ να αλλαζει status του isChecked)
 
   TaskTile(
       {required this.isChecked,
@@ -28,3 +33,5 @@ class TaskTile extends StatelessWidget {
     );
   }
 }
+
+//Η checkboxCallback ΑΠΛΑ καλει τη προτυπη custom void function toggleDone μιας μεταβλητης που κληρονομουν οι μεταβλητες/instances Task

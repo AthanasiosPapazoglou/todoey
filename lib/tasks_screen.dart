@@ -1,3 +1,6 @@
+//Η tasks_screen ειναι το ανώτερο επίπεδο της εφαρμογής και στεγάζει το home UI
+//
+
 import 'package:flutter/material.dart';
 import 'task_tile.dart';
 import 'tasks_list.dart';
@@ -20,14 +23,21 @@ class _TasksScreenState extends State<TasksScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
+
+      //Αυτο το button χρησιμοποιείται για να γίνει popup του modalsheet το οποιο φέρει τα απαραιτητα UI elements για να εισαγουμε
+      //μια νεα τιμη καθως και την απαραιτητη λειτουργικοτητα για να τοποθετηθει η εγγραφη στη λιστα των todos
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         onPressed: () {
           showModalBottomSheet(
             context: context,
             builder: (context) => newRecordSheet((newTaskTitle) {
+              //ULTRA CARE! Αυτο εδω ειναι η ΛΕΙΤΟΥΡΓΙΑ της addTaskCallback
               setState(() {
-                tasks.add(Task(name: newTaskTitle));
+                //που δηλωνουμε στη add_task_screen για να επιτελεσει το εργο αποστολης
+                tasks.add(Task(
+                    name:
+                        newTaskTitle)); //της τιμης του textfield σε νεα εγγραφη στη λιστα των todo
               });
               Navigator.pop(context);
             }),
