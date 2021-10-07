@@ -31,13 +31,11 @@ class _TasksScreenState extends State<TasksScreen> {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            builder: (context) => newRecordSheet((newTaskTitle) {
+            builder: (context) => newRecordSheet((newTaskTitle) { // <=====================CALL POINT
               //ULTRA CARE! Αυτο εδω ειναι η ΛΕΙΤΟΥΡΓΙΑ της addTaskCallback
               setState(() {
                 //που δηλωνουμε στη add_task_screen για να επιτελεσει το εργο αποστολης
-                tasks.add(Task(
-                    name:
-                        newTaskTitle)); //της τιμης του textfield σε νεα εγγραφη στη λιστα των todo
+                tasks.add(Task(name:newTaskTitle)); //της τιμης του textfield σε νεα εγγραφη στη λιστα των todo
               });
               Navigator.pop(context);
             }),
@@ -97,7 +95,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TaskList(tasks),
+              child: TaskList(tasks),  // <==============================================CALL POINT
             ),
           ),
         ],

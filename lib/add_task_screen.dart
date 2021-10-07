@@ -34,6 +34,7 @@ class newRecordSheet extends StatelessWidget {
             ),
             TextField( //Το textField εχει χαρακτηρα input, όποτε εκτελείται keystroke στο πεδιο του αυτοματα το value του πεδιου ανανεωνεται
             //Η λειτουργια αυτη γινεται με χρηση CBfunction ως λειτουργια του onChanged property
+            //ΠΑΝΤΑ η CBfunction στο property onChanged ενoς textField φερει ως argument το CURRENT VALUE του
               autofocus: true,
               textAlign: TextAlign.center,
               onChanged: (newText) {
@@ -49,7 +50,7 @@ class newRecordSheet extends StatelessWidget {
               ),
               color: Colors.lightBlueAccent,
               onPressed: () {
-                addTaskCallback(newTaskTitle);
+                addTaskCallback(newTaskTitle); // <======= CALL POINT
               },
             ),
           ],
