@@ -13,6 +13,8 @@ List<Task> tasks = [
   Task(name: 'Buy bread'),
 ];
 
+String newTaskTitle = '';
+
 class TasksScreen extends StatefulWidget {
   @override
   _TasksScreenState createState() => _TasksScreenState();
